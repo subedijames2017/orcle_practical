@@ -1,0 +1,230 @@
+/*Create user*/
+create user james_s identified by j;
+grant dba to james_s;
+
+/*Unit Master*/
+create table Unit_Master(Unit_Code varchar2(5), Unit_Name varchar2(30) constraint NN_Unit_Name not null);
+alter table Unit_Master add constraints pk_unit_code primary key(Unit_Code);
+select * from tab;
+
+/*Post Master*/
+create table Post_Master(Post_Code varchar2(5), Post_Name varchar2(30) constraint NN_Post_Name not null);
+alter table Post_Master add constraints pk_post_code primary key(Post_Code);
+select * from tab;
+
+/*Training Master*/
+create table Training_Master(Training_Code varchar2(5), Training_Name varchar2(30) constraint NN_Training_Name not null);
+alter table Training_Master add constraints pk_training_code primary key(Training_Code);
+select * from tab;
+
+/*Award Master*/
+create table Award_Master(Award_Code varchar2(5), Award_Name varchar2(30) constraint NN_Award_Name not null);
+alter table Award_Master add constraints pk_award_code primary key(Award_Code);
+select * from tab;
+
+/*Punishment Master*/
+create table Punishment_Master(Punishment_Code varchar2(5), Punishment_Name varchar2(30) constraint NN_Punishment_Name not null);
+alter table Punishment_Master add constraints pk_punishment_code primary key(Punishment_Code);
+select * from tab;
+
+/*Institute Master*/
+create table Institute_Master(Institute_Code varchar2(5), Institute_Name varchar2(30) constraint NN_Institute_Name not null);
+alter table Institute_Master add constraints pk_institute_code primary key(Institute_Code);
+select * from tab;
+
+/*Religion Master*/
+create table Religion_Master(Religion_Code varchar2(5), Religion_Name varchar2(30) constraint NN_Religion_Name not null);
+alter table Religion_Master add constraints pk_religion_code primary key(Religion_Code);
+select * from tab;
+
+/*Education Master*/
+create table Education_Master(Education_Code varchar2(5), Education_Name varchar2(30) constraint NN_Education_Name not null);
+alter table Education_Master add constraints pk_education_code primary key(Education_Code);
+select * from tab;
+
+/*Relation Master*/
+create table Relation_Master(Relation_Code varchar2(5), Relation_Name varchar2(30) constraint NN_Relation_Name not null);
+alter table Relation_Master add constraints pk_relation_code primary key(Relation_Code);
+select * from tab;
+
+/*University Master*/
+create table University_Master(University_Code varchar2(5), University_Name varchar2(30) constraint NN_University_Name not null);
+alter table University_Master add constraints pk_university_code primary key(University_Code);
+select * from tab;
+
+/*Country Master*/
+create table Country_Master(Country_Code varchar2(5), Country_Name varchar2(30) constraint NN_Country_Name not null);
+alter table Country_Master add constraints pk_country_code primary key(Country_Code);
+select * from tab;
+
+/*Blood Group*/
+create table Blood_Group(Group_Code varchar2(5), Group_Name varchar2(30) constraint NN_Group_Name not null);
+alter table Blood_Group  add constraints pk_group_code primary key(Group_Code);
+select * from tab;
+
+/*District Master*/
+create table District_Master(District_CD varchar2(5), District_Name varchar2(30) constraint NN_District_Name not null);
+alter table District_Master add constraints pk_district_code primary key(District_CD);
+select * from tab;
+
+/*Personnnel Detail*/
+create table Personnel_Detail(Emp_Number number(5),
+First_Name varchar2(10) constraint NN_First_Name not null,
+Mid_Name varchar2(10),
+Last_Name varchar2(10),
+Perma_District_CD varchar2(10),
+Perma_VDC_NP varchar2(10),
+Perma_Ward_No number(5),
+Perma_Tole varchar2(10),
+Temp_District_CD varchar2(10),
+Temp_VDC_Np varchar2(20),
+Temp_Ward_No number(5),
+Temp_Tole varchar2(30),
+Gender number(4),
+Religion_Code varchar2(6),
+Father_Name varchar2(10),
+G_Father_Name varchar2(10),
+Date_Birth_AD DATE,
+Date_Birth_BS DATE,
+Nom_Name varchar2(10),
+Nom_Relation varchar2(10),
+Nom_Address varchar2(10),
+Height varchar2(6),
+Blood_Group varchar2(3),
+Appoint_Date_AD DATE,
+Appoint_Date_BS DATE,
+Appoint_Age number(4),
+Appoint_Post varchar2(10),
+Appoint_Unit varchar2(10),
+Enter_By varchar2(10),
+Enter_Date_AD DATE);
+
+alter table  Personnel_Detail add constraints pk_personnel_detail primary key(Emp_Number);
+
+/*Award_Detail*/
+create table Award_Detail(Emp_Number number(5),
+SN number(10), 
+Award_CD varchar2(10),
+Date_BS DATE,
+Date_AD DATE,
+By_Unit_CD varchar2(10),
+Remarks varchar2(30),
+Enter_By varchar2(20),
+Enter_Date_AD DATE);
+
+/*Training Detail*/
+create table Training_Detail(Emp_Number number(5),
+SN number(10),
+Training_CD varchar2(5), 
+From_Date_BS DATE, 
+From_Date_AD DATE,
+To_Date_BS DATE,
+To_Date_AD DATE, 
+Country_CD varchar2(5),
+Institute_CD varchar2(5),
+Enter_By varchar2(20),
+Enter_Date_AD DATE); 
+
+/*Punishment Detail*/
+create table Punishment_Detail(Emp_Number number(5),
+SN number(10),
+Punishment_CD varchar2(5), 
+Date_BS DATE,
+Date_AD DATE,
+By_Unit_CD varchar2(5),
+Remarks varchar2(20),
+Enter_By varchar2(20),
+Enter_Date_AD DATE);
+
+/*Promotion Detail*/
+create table Promotion_Detail(Emp_Number number(5),
+Promo_Date_AD DATE,
+Promo_Date_BS DATE,
+Position_Code varchar2(5),
+Promotion_Type varchar2(20),
+Order_Date_AD DATE,
+Order_Date_BS DATE,
+Authorised_By number(5),
+Authorised_By_Unit varchar2(20),
+Enter_By varchar2(20),
+Enter_Date_AD DATE);
+
+/*Education Detail*/
+create table Education_Detail(Emp_Number number(5),
+SN number(10),
+Education_CD varchar2(5),
+Comp_Date_AD DATE,
+Comp_Date_BS DATE,
+Country_CD varchar2(5),
+University_CD varchar2(5),
+Remarks varchar2(20),
+Enter_By varchar2(20),
+Enter_Date_AD DATE);
+
+/*Transfer Detail*/
+create table Transfer_Detail(Emp_Number number(5),
+Transfer_Date_AD DATE,
+Transfer_Date_BS DATE,
+Transfer_Type varchar2(20),
+Service_Type_Code number(10),
+Transfer_Unit varchar2(20),
+Authorised_By varchar2(20),
+Authorised_By_Unit varchar2(20),
+Enter_By varchar2(20),
+Enter_Date_AD DATE);
+
+/*Job Termination Detail*/
+create table Job_Termination_Detail(Emp_Number number(5),
+Termin_Date_AD DATE,
+Termin_Date_BS DATE,
+Termination_Type varchar2(20),
+Authorised_By_Code number(5),
+Authorised_By_Unit varchar2(20),
+Enter_Date_AD DATE);
+
+/*Personnel Detail Forgein Keys*/
+alter table Personnel_Detail add CONSTRAINT fk_perma_district_cd foreign key(Perma_District_CD) REFERENCES District_Master(District_CD);
+alter table Personnel_Detail add CONSTRAINT fk_temp_district_cd foreign key(Temp_District_CD) REFERENCES District_Master(District_CD);
+alter table Personnel_Detail add CONSTRAINT fk_religion_code foreign key(Religion_Code) REFERENCES Religion_Master(Religion_Code);
+alter table Personnel_Detail add CONSTRAINT fk_nom_relation foreign key(Nom_Relation) REFERENCES Relation_Master(Relation_Code);
+alter table Personnel_Detail add CONSTRAINT fk_blood_relation foreign key(Blood_Group) REFERENCES Blood_Group(Group_Code);
+alter table Personnel_Detail add CONSTRAINT fk_appoint_post foreign key(Appoint_Post) REFERENCES Post_Master(Post_Code);
+alter table Personnel_Detail add CONSTRAINT fk_appoint_unit foreign key(Appoint_Unit) REFERENCES Unit_Master(Unit_Code);
+
+/*Award Detail Forgein Keys*/
+alter table Award_Detail add CONSTRAINT fk_a_emp_number foreign key(Emp_Number) REFERENCES Personnel_Detail(Emp_Number);
+alter table Award_Detail add CONSTRAINT fk_by_unit_cd foreign key(By_Unit_CD) REFERENCES Unit_Master(Unit_Code);
+
+/*Training Detail Keys*/
+alter table Training_Detail add CONSTRAINT fk_t_emp_number foreign key(Emp_Number) REFERENCES Personnel_Detail(Emp_Number);
+alter table Training_Detail add CONSTRAINT fk_training_cd foreign key(Training_CD) REFERENCES Training_Master(Training_Code);
+alter table Training_Detail add CONSTRAINT fk_country_cd foreign key(Country_CD) REFERENCES Country_Master(Country_Code);
+alter table Training_Detail add CONSTRAINT fk_institute_cd foreign key(Institute_CD) REFERENCES Institute_Master(Institute_Code);
+
+/*Punishment Detail Forgein Keys*/
+alter table Punishment_Detail add CONSTRAINT fk_p_emp_number foreign key(Emp_Number) REFERENCES Personnel_Detail(Emp_Number);
+alter table Punishment_Detail add CONSTRAINT fk_unit_cd foreign key(By_Unit_CD) REFERENCES Unit_Master(Unit_Code);
+alter table Punishment_Detail add CONSTRAINT fk_punishment_cd foreign key(Punishment_CD) REFERENCES Punishment_Master(Punishment_Code);
+
+/*Promotion Detail Forgein Keys*/
+alter table Promotion_Detail add CONSTRAINT fk_pro_emp_number foreign key(Emp_Number) REFERENCES Personnel_Detail(Emp_Number);
+alter table Promotion_Detail add CONSTRAINT fk_auth_by_unit foreign key(Authorised_By_Unit) REFERENCES Unit_Master(Unit_Code);
+alter table Promotion_Detail add CONSTRAINT fk_auth_by  foreign key(Authorised_By) REFERENCES Personnel_Detail(Emp_Number);
+
+/*Transfer Detail Forgein Keys*/
+alter table Transfer_Detail add CONSTRAINT fk_trans_emp_number foreign key(Emp_Number) REFERENCES Personnel_Detail(Emp_Number);
+alter table Transfer_Detail add CONSTRAINT fk_auth_transfer_by_unit foreign key(Authorised_By_Unit) REFERENCES Unit_Master(Unit_Code);
+alter table Transfer_Detail add CONSTRAINT fk_transfer_by_unit foreign key(Transfer_Unit) REFERENCES Unit_Master(Unit_Code);
+
+/*Education Detail Forgein Keys*/
+alter table Education_Detail add CONSTRAINT fk_edu_emp_number foreign key(Emp_Number) REFERENCES Personnel_Detail(Emp_Number);
+alter table Education_Detail add CONSTRAINT fk_education_cd  foreign key(Education_CD) REFERENCES Education_Master(Education_Code);
+alter table Education_Detail add CONSTRAINT fk_edu_university_cd  foreign key(University_CD) REFERENCES University_Master(University_Code);
+alter table Education_Detail add CONSTRAINT fk_edu_country_cd  foreign key(Country_CD) REFERENCES Country_Master(Country_Code);
+
+/*Job Termination Detail Forgein Keys*/
+alter table Job_Termination_Detail add CONSTRAINT fk_j0b_emp_number foreign key(Emp_Number) REFERENCES Personnel_Detail(Emp_Number);
+alter table Job_Termination_Detail add CONSTRAINT fk_auth_term_by_unit foreign key(Authorised_By_Unit) REFERENCES Unit_Master(Unit_Code);
+alter table Job_Termination_Detail add CONSTRAINT fk_auth_term_by_code foreign key(Authorised_By_Code) REFERENCES Personnel_Detail(Emp_Number);
+
+
